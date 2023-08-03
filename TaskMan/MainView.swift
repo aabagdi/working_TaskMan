@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var taskArray : [Task] = []
+    //@State var taskArray : [Task] = []
     @State var showTask = false
-    @State var currentTime : Date = Date.now
+    @FetchRequest(sortDescriptors: []) var taskArray: FetchedResults<Task>
+    @Environment(\.managedObjectContext) var moc
 
-    
     var body: some View {
         VStack {
-            NavigationStack {
-                List($taskArray) { $task in
+                List(taskArray) { task in
                     HStack {
-                        Image(systemName: task.isComplete ? "checkmark.square" : "square")
+                        Image(systemName: "square")
                             .onTapGesture {
-                                task.isComplete.toggle()
-                                let newTasks = taskArray.filter { $0.id != task.id }
-                                taskArray = newTasks
+                                moc.delete(task)
+                                try? moc.save()
                             }
-                        Text(task.name)
+                        VStack(alignment: .leading) {
+                            Text("**\(task.name ?? "error")**")
+                            Text("**\(task.date!.formatted(date: .abbreviated, time: .shortened))**")
+                                .font(.caption)
+                        }
                         Spacer()
-                        Text(task.tag)
+                        Text(task.tag ?? "")
                             .font(.caption)
                     }
                 }
@@ -35,13 +37,12 @@ struct MainView: View {
                         showTask.toggle()
                     }
                     .sheet(isPresented: $showTask) {
-                        TaskView(taskArray: $taskArray)
+                        TaskView()
                             .presentationDetents([.fraction(0.305)])
                             .presentationDragIndicator(.hidden)
                     }
                     .navigationTitle("Your tasks")
                     .navigationBarTitleDisplayMode(.inline)
-            }
             .ignoresSafeArea()
         }
     }

@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct TaskView : View {
-    @Binding var taskArray : [Task]
     @Environment(\.dismiss) var dismiss
-    
+    @Environment(\.managedObjectContext) var moc
+
     @State var taskName : String = ""
     @State var taskDate : Date = Date()
     @State var taskTag : String = ""
@@ -29,12 +29,15 @@ struct TaskView : View {
                     in: Date.now...,
                     displayedComponents: [.date, .hourAndMinute])
                 
-                TextField("Tag", text: $taskTag)
+                TextField("Tag (Optional)", text: $taskTag)
             }
             Button("Save Task") {
                 if taskName != "" {
-                    let newTask = Task(name: taskName, date: taskDate, tag: taskTag)
-                    taskArray.append(newTask)
+                    let newTask = Task(context: moc)
+                    newTask.name = taskName
+                    newTask.date = taskDate
+                    newTask.tag = taskTag
+                    try? moc.save()
                     dismiss()
                 }
                 else {

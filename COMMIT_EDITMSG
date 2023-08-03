@@ -1,0 +1,23 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   TaskMan.xcodeproj/project.pbxproj
+#	new file:   TaskMan.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+#	new file:   TaskMan.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+#	new file:   TaskMan.xcodeproj/project.xcworkspace/xcuserdata/aadit.xcuserdatad/UserInterfaceState.xcuserstate
+#	new file:   TaskMan.xcodeproj/xcuserdata/aadit.xcuserdatad/xcschemes/xcschememanagement.plist
+#	new file:   TaskMan/Assets.xcassets/AccentColor.colorset/Contents.json
+#	new file:   TaskMan/Assets.xcassets/AppIcon.appiconset/Contents.json
+#	new file:   TaskMan/Assets.xcassets/Contents.json
+#	new file:   TaskMan/MainView.swift
+#	new file:   TaskMan/Preview Content/Preview Assets.xcassets/Contents.json
+#	new file:   TaskMan/TaskManApp.swift
+#	new file:   TaskMan/TaskStruct.swift
+#	new file:   TaskMan/TaskView.swift
+#

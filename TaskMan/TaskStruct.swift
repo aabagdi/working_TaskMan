@@ -9,12 +9,17 @@ import Foundation
 import SwiftUI
 
 
-struct Task : Hashable, Identifiable {
+struct TaskOld : Hashable, Identifiable {
     let name : String
     let date : Date
     let tag : String
-    var isComplete : Bool =  false
     let id = UUID()
+    
+    func returnDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm, d MMM y"
+        return formatter.string(from: self.date)
+    }
 }
 
 
