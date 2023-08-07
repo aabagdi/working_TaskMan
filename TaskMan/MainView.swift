@@ -24,7 +24,7 @@ struct MainView: View {
                             }
                         VStack(alignment: .leading) {
                             Text("**\(task.name ?? "error")**")
-                            Text("**\(task.date!.formatted(date: .abbreviated, time: .shortened))**")
+                            Text("**\(task.date!.reformat())**")
                                 .font(.caption)
                         }
                         Spacer()

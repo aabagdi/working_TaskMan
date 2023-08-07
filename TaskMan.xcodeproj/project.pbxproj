@@ -15,6 +15,7 @@
 		39BC2E512A525D62005AF8BF /* TaskStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BC2E502A525D62005AF8BF /* TaskStruct.swift */; };
 		39D9B9302A7B0252008B0349 /* TaskDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39D9B92E2A7B0252008B0349 /* TaskDataModel.xcdatamodeld */; };
 		39D9B9322A7B07C6008B0349 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9B9312A7B07C6008B0349 /* DataController.swift */; };
+		39D9B9342A8069A8008B0349 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9B9332A8069A8008B0349 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		39BC2E502A525D62005AF8BF /* TaskStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStruct.swift; sourceTree = "<group>"; };
 		39D9B92F2A7B0252008B0349 /* TaskDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskDataModel.xcdatamodel; sourceTree = "<group>"; };
 		39D9B9312A7B07C6008B0349 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		39D9B9332A8069A8008B0349 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				396E22D02A50DD0B00CE8E92 /* TaskManApp.swift */,
 				396E22D22A50DD0B00CE8E92 /* MainView.swift */,
 				39BC2E4E2A525C02005AF8BF /* TaskView.swift */,
+				39D9B9332A8069A8008B0349 /* Extensions.swift */,
 				39BC2E502A525D62005AF8BF /* TaskStruct.swift */,
 				39D9B92E2A7B0252008B0349 /* TaskDataModel.xcdatamodeld */,
 				39D9B9312A7B07C6008B0349 /* DataController.swift */,
@@ -155,6 +158,7 @@
 				39D9B9302A7B0252008B0349 /* TaskDataModel.xcdatamodeld in Sources */,
 				396E22D12A50DD0B00CE8E92 /* TaskManApp.swift in Sources */,
 				39BC2E512A525D62005AF8BF /* TaskStruct.swift in Sources */,
+				39D9B9342A8069A8008B0349 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

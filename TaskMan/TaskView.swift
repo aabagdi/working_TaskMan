@@ -37,6 +37,7 @@ struct TaskView : View {
                     newTask.name = taskName
                     newTask.date = taskDate
                     newTask.tag = taskTag
+                    newTask.id = UUID()
                     try? moc.save()
                     dismiss()
                 }
