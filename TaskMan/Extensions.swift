@@ -14,3 +14,17 @@ extension Date {
         return formatter.string(from: self)
     }
 }
+
+extension Task {
+    var viewName: String {
+        name ?? "No task name"
+    }
+
+    var viewDate: Date {
+        date ?? Date()
+    }
+
+    var viewTag: String {
+        tag ?? ""
+    }
+}
