@@ -11,41 +11,27 @@ struct MainView: View {
     //@State var taskArray : [Task] = []
     @State var showTask = false
     @State private var searchText = ""
-    @FetchRequest(sortDescriptors: []) var taskArray: FetchedResults<Task>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) var taskArray: FetchedResults<Task>
     @Environment(\.managedObjectContext) var moc
-    var query: Binding<String> {
-            Binding {
-                searchText
-            } set: { newValue in
-                searchText = newValue
-                taskArray.nsPredicate = newValue.isEmpty
-                               ? nil
-                               : NSPredicate(format: "tag CONTAINS %@", newValue)
-            }
-        }
     
-
+    var query: Binding<String> {
+        Binding {
+            searchText
+        } set: { newValue in
+            searchText = newValue
+            taskArray.nsPredicate = newValue.isEmpty
+            ? nil
+            : NSPredicate(format: "tag CONTAINS %@", newValue)
+        }
+    }
+    
+    
     var body: some View {
         NavigationStack {
             VStack {
                 List(taskArray) { task in
-                    HStack {
-                        Image(systemName: "square")
-                            .onTapGesture {
-                                moc.delete(task)
-                                try? moc.save()
-                            }
-                        VStack(alignment: .leading) {
-                            Text("**\(task.viewName)**")
-                            Text("**\(task.viewDate.reformat())**")
-                                .font(.caption)
-                        }
-                        Spacer()
-                        Text(task.viewTag)
-                            .font(.caption)
-                    }
+                    TaskRow(task: task)
                 }
-                .searchable(text: query)
                 
                 Button("Add a new task") {
                     showTask.toggle()
@@ -60,5 +46,34 @@ struct MainView: View {
                 .ignoresSafeArea()
             }
         }
+        .searchable(text: query)
+    }
+}
+
+struct TaskRow: View {
+    let task: FetchedResults<Task>.Element
+    @Environment(\.managedObjectContext) var moc
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "square")
+                .onTapGesture {
+                    delete(task: task)
+                }
+            VStack(alignment: .leading) {
+                Text(task.viewName)
+                Text(task.viewDate.formatted())
+                    .font(.caption)
+            }
+            .fontWeight(.bold)
+            Spacer()
+            Text(task.viewTag)
+                .font(.caption)
+        }
+    }
+    
+    private func delete(task: FetchedResults<Task>.Element) {
+        moc.delete(task)
+        try? moc.save()
     }
 }
