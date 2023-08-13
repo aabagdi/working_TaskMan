@@ -12,6 +12,12 @@ class DataController: ObservableObject {
     let container = NSPersistentCloudKitContainer(name: "TaskDataModel")
     
     init() {
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Container descriptions not loaded")
+        }
+        description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.automaticallyMergesChangesFromParent = true
         container.loadPersistentStores { description, error in
             if let error = error {
                 print("Core Data failed to load: \(error.localizedDescription)")
