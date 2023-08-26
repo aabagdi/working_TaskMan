@@ -12,7 +12,7 @@ class DataController: ObservableObject {
     let container = NSPersistentCloudKitContainer(name: "TaskDataModel")
     
     init() {
-        //try? container.initializeCloudKitSchema(options: [])
+        try! container.initializeCloudKitSchema(options: [])
         guard let description = container.persistentStoreDescriptions.first else {
             fatalError("Container descriptions not loaded")
         }

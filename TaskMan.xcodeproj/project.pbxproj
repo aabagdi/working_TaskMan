@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39311C7A2A96B8DD00F41F18 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39311C792A96B8DD00F41F18 /* CloudKit.framework */; };
 		396E22D12A50DD0B00CE8E92 /* TaskManApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396E22D02A50DD0B00CE8E92 /* TaskManApp.swift */; };
 		396E22D32A50DD0B00CE8E92 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396E22D22A50DD0B00CE8E92 /* MainView.swift */; };
 		396E22D52A50DD0C00CE8E92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396E22D42A50DD0C00CE8E92 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39311C792A96B8DD00F41F18 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		396E22CD2A50DD0B00CE8E92 /* TaskMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		396E22D02A50DD0B00CE8E92 /* TaskManApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManApp.swift; sourceTree = "<group>"; };
 		396E22D22A50DD0B00CE8E92 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -38,17 +40,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39311C7A2A96B8DD00F41F18 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39311C782A96B8DD00F41F18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39311C792A96B8DD00F41F18 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		396E22C42A50DD0A00CE8E92 = {
 			isa = PBXGroup;
 			children = (
 				396E22CF2A50DD0B00CE8E92 /* TaskMan */,
 				396E22CE2A50DD0B00CE8E92 /* Products */,
+				39311C782A96B8DD00F41F18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
